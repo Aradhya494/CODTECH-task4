@@ -1,86 +1,40 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-void compressFile(const char *inputFile, const char *outputFile) {
-    FILE *in = fopen(inputFile, "r");
-    FILE *out = fopen(outputFile, "w");
+void compressRLE(const char *input, char *output) {
+    int count, i, j = 0;
+    int len = strlen(input);
 
-    if (!in || !out) {
-        printf("Error opening files!\n");
-        return;
-    }
+    for (i = 0; i < len; i++) {
+        output[j++] = input[i];
+        count = 1;
 
-    char current, previous;
-    int count = 1;
-
-    previous = fgetc(in);
-
-    while ((current = fgetc(in)) != EOF) {
-        if (current == previous) {
+        while (i + 1 < len && input[i] == input[i + 1]) {
             count++;
-        } else {
-            fprintf(out, "%d%c", count, previous);
-            previous = current;
-            count = 1;
+            i++;
         }
+
+       
+        j += sprintf(&output[j], "%d", count);
     }
-
-    fprintf(out, "%d%c", count, previous);
-
-    fclose(in);
-    fclose(out);
-    printf("File compressed successfully to '%s'.\n", outputFile);
-}
-
-void decompressFile(const char *inputFile, const char *outputFile) {
-    FILE *in = fopen(inputFile, "r");
-    FILE *out = fopen(outputFile, "w");
-
-    if (!in || !out) {
-        printf("Error opening files!\n");
-        return;
-    }
-
-    int count;
-    char ch;
-
-    while (fscanf(in, "%d%c", &count, &ch) == 2) {
-        for (int i = 0; i < count; i++) {
-            fputc(ch, out);
-        }
-    }
-
-    fclose(in);
-    fclose(out);
-    printf("File decompressed successfully to '%s'.\n", outputFile);
+    output[j] = '\0';
 }
 
 int main() {
-    int choice;
-    char inputFile[100], outputFile[100];
+    char input[1000], output[1000];
 
-    printf("=== Run-Length Encoding Compression Tool ===\n");
-    printf("1. Compress File\n");
-    printf("2. Decompress File\n");
-    printf("Enter your choice (1 or 2): ");
-    scanf("%d", &choice);
+    printf("Enter a string to compress: ");
+    scanf("%s", input);
 
-    printf("Enter input file name: ");
-    scanf("%s", inputFile);
+    compressRLE(input, output);
 
-    printf("Enter output file name: ");
-    scanf("%s", outputFile);
-
-    if (choice == 1) {
-        compressFile(inputFile, outputFile);
-    } else if (choice == 2) {
-        decompressFile(inputFile, outputFile);
-    } else {
-        printf("Invalid choice.\n");
-    }
-
+    printf("Compressed: %s\n", output);
     return 0;
 }
+
+
+
+
+
 
 
