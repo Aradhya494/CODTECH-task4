@@ -2,7 +2,7 @@
 
 **Company:** CODETECH IT SOLUTIONS.
 
-**ID:** CT04DF69.
+**INTERN ID:** CT04DF69.
 
 **Domain:** C Programming.
 
@@ -13,6 +13,8 @@
 ## Overview of the Project
 
 ### Project: Data Compression Tool
+
+### Output
 ![Image](https://github.com/user-attachments/assets/252fd0fb-49e8-4411-93b5-73c597fb08e3)
 
 ### Objective
