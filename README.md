@@ -25,13 +25,13 @@ Here the objective  is to create a program in C that can make text smaller by co
    – Choose a basic algorithm like Run-Length Encoding (RLE). 
 
 ### Technologies Used
-. C Programming Language
+**C Programming Language**
   – Core language used to write the compression tool.
 
-. Standard C Libraries
+**Standard C Libraries**
   – Libraries like stdio.h and string.h used for input/output and string manipulation.
 
-.Text Editor 
+**Text Editor** 
   – Tools like Code:: VS Code.
 
 ### Key Insight
