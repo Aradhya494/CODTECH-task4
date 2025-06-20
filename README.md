@@ -13,7 +13,7 @@
 ## Overview of the Project
 
 ### Project: Data Compression Tool
-![Image](https://github.com/user-attachments/assets/901f4668-306e-4584-ba18-9caacdbfc3c7)
+![Image](https://github.com/user-attachments/assets/51674c45-5817-4e9d-92ce-7618408fb5b0
 
 ### Objective
 Here the objective  is to create a program in C that can make text smaller by compressing it. It should find repeated letters or patterns and shorten them. For example, instead of writing "aaaaa", the program can write "a5".
